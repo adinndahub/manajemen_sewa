@@ -159,12 +159,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-        <form action="{{ route('userDestroy', $item->id) }}" method="post">
-        @csrf
-        @method('delete')
-        <button type="submit" class="btn btn-sm btn-info">Delete</button>
-        </form>
+        <button type="button" class="btn btn-sm btn-info" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
