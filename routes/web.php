@@ -36,6 +36,7 @@ Route::middleware('checkLogin')->group(function(){
     Route::post('property/store', [PropertyController::class, 'store'])->name('propertyStore');
     Route::get('property/edit/{id}', [PropertyController::class, 'edit'])->name('propertyEdit');
     Route::post('property/update/{id}', [PropertyController::class, 'update'])->name('propertyUpdate');
+    Route::delete('property/destroy/{id}', [PropertyController::class, 'destroy'])->name('propertyDestroy');
 
     // renters
     Route::get('renters', [RentersController::class, 'index'])->name('renters');

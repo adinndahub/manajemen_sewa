@@ -1,5 +1,5 @@
 <!-- Modal Delete -->
-<div class="modal fade" id="deleteModal{{ $item->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="modalPropertyDestroy{{ $item->id }}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
@@ -11,6 +11,15 @@
       <div class="modal-body text-left">
         <div class="row">
             <div class="col-6">
+                Own Name
+            </div>
+            <div class="col-6">
+                : {{ $item->user->name }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
                 Name
             </div>
             <div class="col-6">
@@ -20,34 +29,52 @@
 
         <div class="row">
             <div class="col-6">
-                Email
+                Type
             </div>
             <div class="col-6">
-                : {{ $item->email }}
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-6">
-                Role
-            </div>
-            <div class="col-6">
-                : {{ $item->role }}
+                : {{ $item->type }}
             </div>
         </div>
 
         <div class="row">
             <div class="col-6">
-                Active Until
+                Address
             </div>
             <div class="col-6">
-                : {{ $item->active_until }}
+                : {{ $item->address }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                Price
+            </div>
+            <div class="col-6">
+                : Rp {{ number_format($item->price, 0, ',', '.') }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                Rent Type
+            </div>
+            <div class="col-6">
+                : {{ $item->rent_type }}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                Status
+            </div>
+            <div class="col-6">
+                : {{ $item->status }}
             </div>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Close</button>
-        <form action="{{ route('userDestroy', $item->id) }}" method="post">
+        <form action="{{ route('propertyDestroy', $item->id) }}" method="post">
         @csrf
         @method('delete')
         <button type="submit" class="btn btn-sm btn-danger">Delete</button>
@@ -109,7 +136,7 @@
                 Price
             </div>
             <div class="col-6">
-                : {{ $item->price }}
+                : Rp {{ number_format($item->price, 0, ',', '.') }}
             </div>
         </div>
 
