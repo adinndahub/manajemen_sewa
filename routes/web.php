@@ -40,5 +40,9 @@ Route::middleware('checkLogin')->group(function(){
 
     // renters
     Route::get('renters', [RentersController::class, 'index'])->name('renters');
+    Route::get('renters/create', [RentersController::class, 'create'])->name('rentersCreate');
+    Route::post('renters/store', [RentersController::class, 'store'])->name('rentersStore');
+    Route::get('renters/edit/{id}', [RentersController::class, 'edit'])->name('rentersEdit');
+    Route::post('renters/update/{id}', [RentersController::class, 'update'])->name('rentersUpdate');
 });
 
